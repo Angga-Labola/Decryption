@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Decryption</title>
+</head>
+
+<body>
+
+    <h2>Decryption</h2>
+    <p>Enter text to decrypt:</p>
+    <form method="POST">
+        <textarea type="text" id="text" name="text" step="any" required></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if result is not none %}
+        <p id="output-text">
+                {{ result }}
+        </p>
+    {% endif %}
+    
+    <br><br>
+    <!-- Copy Button -->
+    <button onclick="copyOutput()">Copy Output</button>
+    <span id="copy-status" style="margin-left: 10px; color: green;"></span>
+    <script>
+        function copyOutput() {
+            // Get the text content from the output element
+            const textToCopy = document.getElementById('output-text').innerText;
+
+            // Use the Clipboard API to copy the text
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const status = document.getElementById('copy-status');
+                status.innerText = 'Copied!';
+                setTimeout(() => { status.innerText = ''; }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+<br><br><br>
+<a href="https://angga-labola.github.io/" 
+    style=" 
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3E5641;
+    color : white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;">
+    Back to Home
+</a>
+
+</body>
+</html>
