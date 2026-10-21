@@ -12,9 +12,23 @@
     <h2>Decryption</h2>
     <p>Enter text to decrypt:</p>
     <form method="POST">
-        <textarea type="text" id="text" name="text" step="any" required></textarea>
+        <textarea type="text" id="text" name="text" step="any" required
+        style="width: 100%;
+         max-width: 600px;      
+         height: 200px;    
+         box-sizing: border-box;"></textarea>
         <br><br>
-        <button type="submit">Submit</button>
+        <button type="submit"
+        style=" 
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3E5641;
+        color : white;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;">
+        Submit
+        </button>
     </form>
 
     {% if result is not none %}
@@ -25,7 +39,17 @@
     
     <br><br>
     <!-- Copy Button -->
-    <button onclick="copyOutput()">Copy Output</button>
+    <button onclick="copyOutput()"
+    style=" 
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3E5641;
+        color : white;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;">
+        Copy Output
+    </button>
     <span id="copy-status" style="margin-left: 10px; color: green;"></span>
     <script>
         function copyOutput() {
